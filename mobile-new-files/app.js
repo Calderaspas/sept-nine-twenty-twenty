@@ -263,7 +263,9 @@
                   a = "",
                   l = this;
               for (e("body").append('<div class="lg-backdrop"></div>'), e(".lg-backdrop").css("transition-duration", this.s.backdropDuration + "ms"), i = 0; i < this.$items.length; i++) s += '<div class="lg-item"></div>';
-              if (this.s.controls && this.$items.length > 1 && (o = '<div class="lg-actions"><button class="lg-prev lg-icon">' + this.s.prevHtml + '</button><button class="lg-next lg-icon">' + this.s.nextHtml + "</button></div>"), ".lg-sub-html" === this.s.appendSubHtmlTo && (a = '<div class="lg-sub-html"></div>'), t = '<div class="lg-outer ' + this.s.addClass + " " + this.s.startClass + '"><div class="lg" style="width:' + this.s.width + "; height:" + this.s.height + '"><div class="lg-inner">' + s + '</div><a class="caldera-link"><span class="lg-icon" id="lg-link-home"></span></a><div class="lg-toolbar lg-group"><span href="" class="lg-icon pdf" id="getBrochure"></span></div>' + o + a + "</div></div>", e("body").append(t), this.$outer = e(".lg-outer"), this.$slide = this.$outer.find(".lg-item"), this.s.useLeft ? (this.$outer.addClass("lg-use-left"), this.s.mode = "lg-slide") : this.$outer.addClass("lg-use-css3"), l.setTop(), e(window).on("resize.lg orientationchange.lg", (function() {
+              if (this.s.controls && this.$items.length > 1 && (o = '<div class="lg-actions"><button class="lg-prev lg-icon">' + this.s.prevHtml + '</button><button class="lg-next lg-icon">' + this.s.nextHtml + "</button></div>"), 
+              ".lg-sub-html" === this.s.appendSubHtmlTo && (a = '<div class="lg-sub-html"></div>'), t = '<div class="lg-outer ' + this.s.addClass + " " + this.s.startClass + '"><div class="lg" style="width:' + this.s.width + "; height:" + this.s.height + '"><div class="lg-inner">' + s + '</div><a class="caldera-link"><span class="lg-icon" id="lg-link-home"></span></a><div class="lg-toolbar lg-group"><span href="" class="lg-icon pdf" id="getBrochure"></span></div>' + o + a + "</div></div>", e("body").append(t), this.$outer = e(".lg-outer"), this.$slide = this.$outer.find(".lg-item"), this.s.useLeft ? (this.$outer.addClass("lg-use-left"), this.s.mode = "lg-slide") : this.$outer.addClass("lg-use-css3"), l.setTop(), e(window).on("resize.lg orientationchange.lg", 
+              (function() {
                       setTimeout((function() {
                           l.setTop()
                       }), 100)
@@ -279,8 +281,10 @@
                       alt: "Link to CalderaSpas.com"
                   })
               })), setTimeout((function() {
-                  e("#getBrochure").attr("type", "button"), e("#getBrochure").on("click tap", (function() {
+                  e("#getBrochure").attr("type", "button"), e("#getBrochure").on("click", (function() {
                       axios({
+                          async: !1,
+                          defer: !0,
                           url: "./wp-content/themes/prelude-child/assets/2020-brochure-mobile/caldera-spas-2020-brochure.pdf",
                           method: "GET",
                           responseType: "blob"
@@ -302,13 +306,14 @@
                                       type: "application/pdf"
                                   })),
                                   link = document.createElement("a");
-                              link.href = url, link.target = "_blank", link.setAttribute("download", "Caldera Spas Brochure 2020"), document.body.appendChild(link), link.click(), link.tap(), setTimeout((function() {
+                              link.href = url, link.target = "_blank", 
+                              link.setAttribute("download", "Caldera Spas Brochure 2020"), 
+                              document.body.appendChild(link), 
+                              link.click(), 
+                                setTimeout((function() {
                                   document.body.removeChild(link), window.URL.revokeObjectURL(URL)
                               }), 100)
                           }
-                      }), (function(error) {
-                          var date = new Date(2018, 11, 24, 10, 33);
-                          console.log(error + date)
                       }))
                   }))
               })), setTimeout((function() {
